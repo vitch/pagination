@@ -225,6 +225,20 @@ class Kohana_Pagination {
 	}
 
 	/**
+	 * Utility function to check whether the passed in page number is a valid page.
+	 *
+	 * Use so you can send the user a 404 error when they try to access a page which
+	 * doesn't exist.
+	 *
+	 * @param  $page The page number to check
+	 * @return bool  Whether the passed page number is valid
+	 */
+	public function is_valid_page($page)
+	{
+		return $page > 0 AND $page <= $this->total_pages;
+	}
+
+	/**
 	 * Renders the pagination links.
 	 *
 	 * @return  string  pagination output (HTML)
